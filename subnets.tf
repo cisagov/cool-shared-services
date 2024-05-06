@@ -14,8 +14,8 @@ module "public" {
     aws = aws.sharedservicesprovisionaccount
   }
 
-  vpc_id             = aws_vpc.the_vpc.id
   subnet_cidr_blocks = var.public_subnet_cidr_blocks
+  vpc_id             = aws_vpc.the_vpc.id
 }
 
 module "private" {
@@ -24,8 +24,8 @@ module "private" {
     aws = aws.sharedservicesprovisionaccount
   }
 
-  vpc_id             = aws_vpc.the_vpc.id
   subnet_cidr_blocks = var.private_subnet_cidr_blocks
+  vpc_id             = aws_vpc.the_vpc.id
 }
 
 #-------------------------------------------------------------------------------

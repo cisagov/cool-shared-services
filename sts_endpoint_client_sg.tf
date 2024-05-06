@@ -13,10 +13,10 @@ resource "aws_security_group" "sts_endpoint_client" {
 resource "aws_security_group_rule" "egress_from_sts_endpoint_client_to_sts_endpoint_via_https" {
   provider = aws.sharedservicesprovisionaccount
 
-  security_group_id        = aws_security_group.sts_endpoint_client.id
-  type                     = "egress"
-  protocol                 = "tcp"
-  source_security_group_id = aws_security_group.sts_endpoint.id
   from_port                = 443
+  protocol                 = "tcp"
+  security_group_id        = aws_security_group.sts_endpoint_client.id
+  source_security_group_id = aws_security_group.sts_endpoint.id
   to_port                  = 443
+  type                     = "egress"
 }

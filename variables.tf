@@ -5,28 +5,28 @@
 # ------------------------------------------------------------------------------
 
 variable "cool_cidr_block" {
-  type        = string
   description = "The overall CIDR block associated with the COOL (e.g. \"10.128.0.0/9\")."
+  type        = string
 }
 
 variable "cool_domain" {
-  type        = string
   description = "The domain where the COOL resources reside (e.g. \"cool.cyber.dhs.gov\")."
+  type        = string
 }
 
 variable "private_subnet_cidr_blocks" {
-  type        = list(string)
   description = "The CIDR blocks corresponding to the private subnets to be associated with the VPC (e.g. [\"10.10.0.0/24\", \"10.10.1.0/24\"]).  These must be /24 blocks, since we are using them to create reverse DNS zones.  This list must be the same length as public_subnet_cidr_blocks, since each private subnet will be assigned a NAT gateway in a public subnet in the same Availability Zone."
+  type        = list(string)
 }
 
 variable "public_subnet_cidr_blocks" {
-  type        = list(string)
   description = "The CIDR blocks corresponding to the public subnets to be associated with the VPC (e.g. [\"10.10.0.0/24\", \"10.10.1.0/24\"]).  These must be /24 blocks, since we are using them to create reverse DNS zones.  This list must be the same length as private_subnet_cidr_blocks, since each private subnet will be assigned a NAT gateway in a public subnet in the same Availability Zone."
+  type        = list(string)
 }
 
 variable "vpc_cidr_block" {
-  type        = string
   description = "The overall CIDR block to be associated with the VPC (e.g. \"10.10.0.0/16\")."
+  type        = string
 }
 
 # ------------------------------------------------------------------------------
@@ -36,55 +36,55 @@ variable "vpc_cidr_block" {
 # ------------------------------------------------------------------------------
 
 variable "aws_region" {
-  type        = string
-  description = "The AWS region where the shared services account is to be created (e.g. \"us-east-1\")."
   default     = "us-east-1"
+  description = "The AWS region where the shared services account is to be created (e.g. \"us-east-1\")."
+  type        = string
 }
 
 variable "provisionaccount_role_name" {
-  type        = string
-  description = "The name of the IAM role that allows sufficient permissions to provision all AWS resources in the Shared Services account."
   default     = "ProvisionAccount"
+  description = "The name of the IAM role that allows sufficient permissions to provision all AWS resources in the Shared Services account."
+  type        = string
 }
 
 variable "provisionnetworking_policy_description" {
-  type        = string
-  description = "The description to associate with the IAM policy that allows provisioning of the networking layer in the Shared Services account."
   default     = "Allows provisioning of the networking layer in the Shared Services account."
+  description = "The description to associate with the IAM policy that allows provisioning of the networking layer in the Shared Services account."
+  type        = string
 }
 
 variable "provisionnetworking_policy_name" {
-  type        = string
-  description = "The name to assign the IAM policy that allows provisioning of the networking layer in the Shared Services account."
   default     = "ProvisionNetworking"
+  description = "The name to assign the IAM policy that allows provisioning of the networking layer in the Shared Services account."
+  type        = string
 }
 
 variable "provisionprivatednsrecords_role_description" {
-  type        = string
-  description = "The description to associate with the IAM role (as well as the corresponding policy) that allows sufficient permissions to provision DNS records in private zones in the Shared Services account."
   default     = "Allows sufficient permissions to provision DNS records in private zones in the Shared Services account."
+  description = "The description to associate with the IAM role (as well as the corresponding policy) that allows sufficient permissions to provision DNS records in private zones in the Shared Services account."
+  type        = string
 }
 
 variable "provisionprivatednsrecords_role_name" {
-  type        = string
-  description = "The name to assign the IAM role (as well as the corresponding policy) that allows sufficient permissions to provision DNS records in private zones in the Shared Services account."
   default     = "ProvisionPrivateDNSRecords"
+  description = "The name to assign the IAM role (as well as the corresponding policy) that allows sufficient permissions to provision DNS records in private zones in the Shared Services account."
+  type        = string
 }
 
 variable "read_terraform_state_role_name" {
-  type        = string
-  description = "The name to assign the IAM role (as well as the corresponding policy) that allows read-only access to the cool-sharedservices-networking state in the S3 bucket where Terraform state is stored."
   default     = "ReadSharedServicesNetworkingTerraformState"
+  description = "The name to assign the IAM role (as well as the corresponding policy) that allows read-only access to the cool-sharedservices-networking state in the S3 bucket where Terraform state is stored."
+  type        = string
 }
 
 variable "tags" {
-  type        = map(string)
-  description = "Tags to apply to all AWS resources created."
   default     = {}
+  description = "Tags to apply to all AWS resources created."
+  type        = map(string)
 }
 
 variable "transit_gateway_description" {
-  type        = string
-  description = "The description to associate with the Transit Gateway in the Shared Services account that allows cross-VPC communication."
   default     = "The Transit Gateway in the Shared Services account that allows cross-VPC communication."
+  description = "The description to associate with the Transit Gateway in the Shared Services account that allows cross-VPC communication."
+  type        = string
 }

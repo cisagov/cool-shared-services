@@ -18,8 +18,8 @@ resource "aws_default_route_table" "public" {
 resource "aws_route" "cool_route" {
   provider = aws.sharedservicesprovisionaccount
 
-  route_table_id         = aws_default_route_table.public.id
   destination_cidr_block = var.cool_cidr_block
+  route_table_id         = aws_default_route_table.public.id
   transit_gateway_id     = aws_ec2_transit_gateway.tgw.id
 }
 
@@ -28,8 +28,8 @@ resource "aws_route" "cool_route" {
 resource "aws_route" "external_route" {
   provider = aws.sharedservicesprovisionaccount
 
-  route_table_id         = aws_default_route_table.public.id
   destination_cidr_block = "0.0.0.0/0"
+  route_table_id         = aws_default_route_table.public.id
   gateway_id             = aws_internet_gateway.the_igw.id
 }
 
