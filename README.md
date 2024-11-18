@@ -34,7 +34,7 @@ At this point the `ProvisionNetworking` policy is attached to the
 
 | Name | Version |
 |------|---------|
-| terraform | ~> 1.0 |
+| terraform | ~> 1.1 |
 | aws | ~> 4.9 |
 
 ## Providers ##
