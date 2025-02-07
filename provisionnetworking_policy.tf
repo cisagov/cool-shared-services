@@ -54,6 +54,7 @@ data "aws_iam_policy_document" "provisionnetworking_policy_doc" {
       "ec2:ReleaseAddress",
       "ec2:ReplaceRoute",
       "ec2:RevokeSecurityGroupEgress",
+      "ec2:RevokeSecurityGroupIngress",
       "ec2:SearchTransitGatewayRoutes",
       "ram:AssociateResourceShare",
       "ram:CreateResourceShare",
